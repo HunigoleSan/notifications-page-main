@@ -150,9 +150,15 @@ arrayNotificationsHtml.forEach(function callback(currentValue, index, array) {
                     currentValue.classList.remove('show_bg_noti_active')
                     currentValue.classList.add('hidden_bg_noti_not_active')
                     for (let i = 0; i < changeActive.length; i++) {
+                        if(changeActive[i].classList == 'publication'){
+                            changeActive[i].classList.remove('publication')
+                            changeActive[i].classList.add('publication_read')
+                        }
                         if (changeActive[i].classList == 'active'){
                             changeActive[i].classList.remove('active')
+                            
                         }
+
 
                     }
                     countActive -= 1
@@ -177,6 +183,7 @@ markAllHtml.addEventListener('click', e => {
             let nombre = user_notification[i].name
             let active = user_notification[i].active
             if (user_notification[i].active == false) {
+                
                 user_notification[i].active = true;
                 countActive -= 1
                 console.log("Usuario: ", nombre)
@@ -185,6 +192,10 @@ markAllHtml.addEventListener('click', e => {
                 console.log("No se selecciono a este usuario")
             }
             for (let i = 0; i < changeActive.length; i++) {
+                if(changeActive[i].classList == 'publication'){
+                    changeActive[i].classList.remove('publication')
+                    changeActive[i].classList.add('publication_read')
+                }
                 if (changeActive[i].classList == 'active'){
                     changeActive[i].classList.remove('active')
                 }
