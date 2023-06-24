@@ -166,7 +166,7 @@ p{
 }
 /* atribution*/
 .attribution{
-    margin: 2rem 0rem;
+    margin: 4rem 0rem;
     width: 100%;
     text-align: center;
     font-size: 1.6rem;
@@ -175,6 +175,7 @@ p{
 .attribution > a{
     color: var(--blue);
     text-decoration: none;
+    font-size: 1.6rem;
 }
 .attribution > a:nth-child(2){
     transition: text-shadow 0.5s ease;
