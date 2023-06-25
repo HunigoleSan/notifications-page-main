@@ -112,15 +112,12 @@ for (let i = 0; i < user_notification.length; i++) {
                     </p>`
                     
     }
-    console.log(carHtml)
     if (messageFriends){
         carHtml += spanMessage +`</div>
         </div>
         </div>`
     }
-    console.log(carHtml)
     /* enviar la cantidad a la vista*/
-
     notificationsHtml.innerHTML += carHtml
 }
 
@@ -145,8 +142,8 @@ arrayNotificationsHtml.forEach(function callback(currentValue, index, array) {
                 if (user_notification[i].active == false) {
                     
                     user_notification[i].active = true;
-                    console.log('nombre:',nombre)
-                    console.log('active:',user_notification[i].active)
+                    /* console.log('nombre:',nombre)
+                    console.log('active:',user_notification[i].active) */
                     currentValue.classList.remove('show_bg_noti_active')
                     currentValue.classList.add('hidden_bg_noti_not_active')
                     for (let i = 0; i < changeActive.length; i++) {
@@ -155,19 +152,16 @@ arrayNotificationsHtml.forEach(function callback(currentValue, index, array) {
                             changeActive[i].classList.add('publication_read')
                         }
                         if (changeActive[i].classList == 'active'){
-                            changeActive[i].classList.remove('active')
-                            
+                            changeActive[i].classList.remove('active')   
                         }
-
-
                     }
                     countActive -= 1
                     document.getElementById("countNoti").innerHTML = ' ' + countActive;
                 } else {
-                    console.log("Ya reviso la notificación")
+                    /* console.log("Ya reviso la notificación") */
                 }
             } else {
-                console.log("No se selecciono a este usuario")
+                /* console.log("No se selecciono a este usuario") */
             }
         }
         currentValue.classList.remove('show_bg_noti_active')
@@ -183,13 +177,12 @@ markAllHtml.addEventListener('click', e => {
             let nombre = user_notification[i].name
             let active = user_notification[i].active
             if (user_notification[i].active == false) {
-                
                 user_notification[i].active = true;
                 countActive -= 1
-                console.log("Usuario: ", nombre)
-                console.log("Active:", user_notification[i].active)
+                /* console.log("Usuario: ", nombre)
+                console.log("Active:", user_notification[i].active) */
             } else {
-                console.log("No se selecciono a este usuario")
+                /* console.log("No se selecciono a este usuario") */
             }
             for (let i = 0; i < changeActive.length; i++) {
                 if(changeActive[i].classList == 'publication'){
@@ -199,9 +192,7 @@ markAllHtml.addEventListener('click', e => {
                 if (changeActive[i].classList == 'active'){
                     changeActive[i].classList.remove('active')
                 }
-
             }
-            
             currentValue.classList.remove('show_bg_noti_active')
             currentValue.classList.add('hidden_bg_noti_not_active')  
         }
