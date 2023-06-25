@@ -5,48 +5,48 @@ const countHtml = document.getElementById("countNoti").value
 let user_notification = [{
 
     name: 'Mark Webber',
-    avatar: '../assets/images/avatar-mark-webber.webp',
+    avatar: './assets/images/avatar-mark-webber.webp',
     reaction: 'reacted to your recent post',
     postTitle: 'My first tournament today!',
     notTime: '1m ago',
     active: false
 }, {
     name: 'Angela',
-    avatar: '../assets/images/avatar-angela-gray.webp',
+    avatar: './assets/images/avatar-angela-gray.webp',
     reaction: 'Gray followed you',
     notTime: '5m ago',
     active: false
 }, {
     name: 'Jacob Thompson ',
-    avatar: '../assets/images/avatar-jacob-thompson.webp',
+    avatar: './assets/images/avatar-jacob-thompson.webp',
     reaction: 'has joined your group',
     postTitle: 'Cheese Club',
     notTime: ' 1 day ago',
     active: false
 }, {
     name: 'Rizky Hasanuddin',
-    avatar: '../assets/images/avatar-rizky-hasanuddin.webp',
+    avatar: './assets/images/avatar-rizky-hasanuddin.webp',
     reaction: 'sent you a private message',
     message: 'Hello, thanks for setting up the Chess Club. Ive been a member for a few weeks now and Im already having lots of fun and improving my game.',
     notTime: '5 days ago',
     active: false
 }, {
     name: 'Kimberly Smith',
-    avatar: '../assets/images/avatar-kimberly-smith.webp',
+    avatar: './assets/images/avatar-kimberly-smith.webp',
     reaction: 'commented on your picture',
-    commentPicture: '../assets/images/image-chess.webp',
+    commentPicture: './assets/images/image-chess.webp',
     notTime: '1 week ago',
     active: false
 }, {
     name: 'Nathan Peterson',
-    avatar: '../assets/images/avatar-nathan-peterson.webp',
+    avatar: './assets/images/avatar-nathan-peterson.webp',
     reaction: 'reacted to your recent post',
     postTitle: '5 end-game strategies to increase your win rate ',
     notTime: '2 weeks ago',
     active: false
 }, {
     name: 'Anna Kim',
-    avatar: '../assets/images/avatar-anna-kim.webp',
+    avatar: './assets/images/avatar-anna-kim.webp',
     reaction: 'left the group',
     postTitle: 'Cheese',
     notTime: '2 weeks ago',
