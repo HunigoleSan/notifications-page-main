@@ -1,4 +1,4 @@
-# Frontend Mentor - Notifications page
+[# Frontend Mentor - Notifications page](https://hunigolesan.github.io/notifications-page-main/)
 
 ![Design preview for the Notifications page coding challenge](./design/desktop-preview.jpg)
 
