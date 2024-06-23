@@ -4,7 +4,6 @@ const countHtml = document.getElementById("countNoti").value
 
 let user_notification = [
     {
-
         name: 'Mark Webber',
         avatar: './assets/images/avatar-mark-webber.webp',
         reaction: 'reacted to your recent post',
@@ -56,9 +55,6 @@ let user_notification = [
 ];
 
 let countActive = 0
-
-/* Imprimir Usuarios con notificaciones */
-
 for (let i = 0; i < user_notification.length; i++) {
     let nombre = user_notification[i].name
     let avatar = user_notification[i].avatar
@@ -103,22 +99,19 @@ for (let i = 0; i < user_notification.length; i++) {
     if (active == false) {
         carHtml += spanActive + `</p>`
         countActive += 1
-    }
-    else {
+    }else {
         carHtml += spanActive + `</p>`
     }
     if (notTime) {
         carHtml += `<p class="notification_time">
                         ${notTime}
                     </p>`
-
     }
     if (messageFriends) {
         carHtml += spanMessage + `</div>
         </div>
         </div>`
     }
-    /* imprimir usuarios */
     notificationsHtml.innerHTML += carHtml
 }
 
@@ -130,24 +123,14 @@ const markAllHtml = document.getElementById('markAllNotifications')
 document.getElementById("countNoti").innerHTML = ' ' + countActive;
 
 arrayNotificationsHtml.forEach(function callback(currentValue, index, array) {
-    /* console.log(array.classList) */
     currentValue.addEventListener('click', e => {
-        /* console.log(currentValue.children) */
         var identifiedUser = currentValue.children[1].children[0].children[0].children[0].textContent
-        /* var changeActive = currentValue.children[1].children[0].children[0].children[3] */
-        console.log(identifiedUser)
         var changeActive = currentValue.children[1].children[0].children[0].children
-
         for (let i = 0; i < user_notification.length; i++) {
-            let nombre = user_notification[i].name
-
+            /* let nombre = user_notification[i].name */
             if (identifiedUser == user_notification[i].name) {
-                console.log("Usuario seleccionado")
                 if (user_notification[i].active == false) {
-
                     user_notification[i].active = true;
-                    /* console.log('nombre:',nombre)
-                    console.log('active:',user_notification[i].active) */
                     currentValue.classList.remove('show_bg_noti_active')
                     currentValue.classList.add('hidden_bg_noti_not_active')
                     for (let i = 0; i < changeActive.length; i++) {
@@ -161,51 +144,44 @@ arrayNotificationsHtml.forEach(function callback(currentValue, index, array) {
                     }
                     countActive -= 1
                     document.getElementById("countNoti").innerHTML = ' ' + countActive;
-                } else {
-                    /* console.log("Ya reviso la notificación") */
                 }
-            } else {
-                /* console.log("No se selecciono a este usuario") */
             }
         }
         currentValue.classList.remove('show_bg_noti_active')
         currentValue.classList.add('hidden_bg_noti_not_active')
     })
-
 })
-markAllHtml.addEventListener('click', e => {
+
+function turnOfAllNotifications(){
+    for (let i = 0; i < user_notification.length; i++) {
+        if (user_notification[i].active == false) {
+            user_notification[i].active = true;
+            countActive -= 1
+        }
+    }
+    document.getElementById("countNoti").innerHTML = ' ' + countActive;
+}
+
+function readAllNotications(){
     arrayNotificationsHtml.forEach(function callback(currentValue, index, array) {
         var changeActive = currentValue.children[1].children[0].children[0].children
-        for (let i = 0; i < user_notification.length; i++) {
-            let nombre = user_notification[i].name
-            let active = user_notification[i].active
-            if (user_notification[i].active == false) {
-                user_notification[i].active = true;
-                countActive -= 1
-                console.log("Usuario: ", nombre)
-                console.log("Active:", user_notification[i].active)
-            } else {
-                console.log("No se selecciono a este usuario")
+        for (let i = 0; i < changeActive.length; i++) {
+            if (changeActive[i].classList == 'publication') {
+                changeActive[i].classList.remove('publication')
+                changeActive[i].classList.add('publication_read')
+            }else if(changeActive[i].classList == 'active'){
+                changeActive[i].classList.remove('active')
             }
-            for (let i = 0; i < changeActive.length; i++) {
-                if (changeActive[i].classList == 'publication') {
-                    changeActive[i].classList.remove('publication')
-                    changeActive[i].classList.add('publication_read')
-                }
-                if (changeActive[i].classList == 'active') {
-                    changeActive[i].classList.remove('active')
-                }
-            }
-            currentValue.classList.remove('show_bg_noti_active')
-            currentValue.classList.add('hidden_bg_noti_not_active')
         }
-        document.getElementById("countNoti").innerHTML = ' ' + countActive;
+        currentValue.classList.remove('show_bg_noti_active')
+        currentValue.classList.add('hidden_bg_noti_not_active')
     })
+}
 
+markAllHtml.addEventListener('click', e => {
+    turnOfAllNotifications()
+    readAllNotications()
 })
-
-
-
 
 
 
