@@ -69,7 +69,6 @@ for (let i = 0; i < user_notification.length; i++) {
     let spanNombre = `<span class="name">${nombre}</span>`
     let spanReaction = `<span class="interaction">${reaction}</span>`
     let spanPostTitle = `<span class="publication">${postTitle}</span>`
-    let spanNotTime = `<p class="notification_time">${notTime}</p>`
     let spanCommentPicture = `<img class="picture" src="${commetPicture}" class="notification_time"></img>`
     let spanActive = `<span class="active"></span>`
     let spanMessage = `<span class="message">${messageFriends}</span>`
@@ -117,9 +116,7 @@ for (let i = 0; i < user_notification.length; i++) {
 
 /* evento click a cada elemento hijo de notificaciones */
 const arrayNotificationsHtml = document.querySelectorAll('.container_user')
-
 const markAllHtml = document.getElementById('markAllNotifications')
-
 document.getElementById("countNoti").innerHTML = ' ' + countActive;
 
 arrayNotificationsHtml.forEach(function callback(currentValue, index, array) {
